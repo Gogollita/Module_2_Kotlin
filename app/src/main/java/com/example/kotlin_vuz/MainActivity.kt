@@ -1,6 +1,5 @@
 package com.example.kotlin_vuz
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -16,7 +15,6 @@ import androidx.compose.ui.unit.dp
 import com.example.kotlin_vuz.ui.theme.Kotlin_VUZTheme
 
 class MainActivity : ComponentActivity() {
-    @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -27,7 +25,7 @@ class MainActivity : ComponentActivity() {
                     .padding(40.dp)
                 ) {
                     Hello(
-                        name = null
+                        name = "Android"
                     )
                 }
             }
@@ -38,20 +36,14 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Hello(name: String?) {
     Text(
-        text = if (name != null) "Hello $name!" else "Имя не задано",
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(40.dp)
+        text = if (name != null) "Hello $name!" else "Имя не задано"
     )
 }
 
-@Preview(name = "Альбомная ориентация", showSystemUi = true, device = "spec:width=411dp,height=891dp,dpi=420,orientation=landscape")
-@Preview(name = "Портретная ориентация", showSystemUi = true, device = "spec:width=411dp,height=891dp,dpi=420,orientation=portrait")
-@Preview(name = "Круглая ориентация", device = "spec:width=200dp,height=200dp,isRound=true", showSystemUi = true, showBackground = true, backgroundColor = 0xFFFFFF00)
+@Preview(showBackground = true)
 @Composable
 fun HelloPreview() {
     Kotlin_VUZTheme {
-        Hello(name = "Android")
+        Hello(name = null)
     }
 }
-
